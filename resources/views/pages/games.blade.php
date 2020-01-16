@@ -7,7 +7,12 @@
             <div>
                 <ul>
                     @foreach($games as $game)
-                        <li>{{ $game->name }} développé par {{ $game->developper->name }}</li>
+                        <li>
+                            <a href="{{ route('game_details', ['game_id' => $game->id]) }}">
+                                {{ $game->name }}
+                            </a>
+                            développé par {{ $game->developper ? $game->developper->name : 'inconnu'}}
+                        </li>
                     @endforeach
                 </ul>
             </div>

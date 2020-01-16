@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Game;
 
 class GamesController extends Controller
 {
@@ -11,11 +12,26 @@ class GamesController extends Controller
 
 
         return view('pages.game_details', [
-            'game' => $game
+            'game' => $game,
         ]);
     }
 
     public function addGame(){
+        return view('pages.game_add');
+    }
 
+    public function addPostGame(Request $request){
+        $this->validate($request, [
+            'name' => 'required'
+            ]);
+            
+        $game = new Game();
+        $game->name = $request->input('name');
+        $game->pegi = $request->input('pegi');
+        $game->physical_release = $request->filled('physical_release');
+
+        $game->save();
+
+        return redirect()->route('games');
     }
 }
