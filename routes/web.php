@@ -12,4 +12,5 @@
 */
 
 Route::get('/games', 'testController@games');
+Route::get('/devs', 'testController@developpers');
 Route::get('/{hello?}', 'testController@hello');

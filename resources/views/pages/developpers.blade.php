@@ -6,8 +6,13 @@
             <h1> Tous les jeux</h1>
             <div>
                 <ul>
-                    @foreach($games as $game)
-                        <li>{{ $game->name }} développé par {{ $game->developper->name }}</li>
+                    @foreach($developpers as $developper)
+                    Jeux développés par {{ $developper->name }}
+                    <ul>
+                    @foreach($developper->games as $game)
+                        <li>{{ $game->name }}</li>
+                    @endforeach
+                    </ul>
                     @endforeach
                 </ul>
             </div>
