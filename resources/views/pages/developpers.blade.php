@@ -10,7 +10,8 @@
                     Jeux développés par {{ $developper->name }}
                     <ul>
                     @foreach($developper->games as $game)
-                        <li>{{ $game->name }}</li>
+                        <li>{{ $game->name }} disponible sur {{ $game->platforms->pluck('name')->implode(',') }}</li>
+                        <!--$loop->last, $loop->odd, $loop->depth-->
                     @endforeach
                     </ul>
                     @endforeach

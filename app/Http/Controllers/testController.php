@@ -27,7 +27,8 @@ class testController extends Controller
     }
 
     public function developpers(){
-        $developpers = Developper::get();
+        // $developpers = Developper::with('games.platforms')->get();
+        $developpers = Developper::with('games.platforms')->has('games')->get();
 
         return view('pages.developpers', [
             'developpers' => $developpers,

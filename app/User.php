@@ -36,4 +36,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function scopeActive(){
+        return $this->where('active', true);
+    }
+
+    //User::active->get()
 }

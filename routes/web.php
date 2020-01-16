@@ -12,5 +12,7 @@
 */
 
 Route::get('/games', 'testController@games');
+Route::get('/game/{game_id}', 'GamesController@getGame');
+Route::get('/game/add', 'GamesController@addGame');
 Route::get('/devs', 'testController@developpers');
 Route::get('/{hello?}', 'testController@hello');
