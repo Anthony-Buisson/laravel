@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Game;
@@ -33,6 +34,14 @@ class testController extends Controller
         return view('pages.developpers', [
             'developpers' => $developpers,
             'companyname' => '<strong>ICWT</strong>'
+        ]);
+    }
+
+    public function users($page = 1){
+        $users = User::paginate(10);
+
+        return view('pages.users', [
+            'users' => $users
         ]);
     }
 }
