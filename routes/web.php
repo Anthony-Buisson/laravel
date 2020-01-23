@@ -11,9 +11,14 @@
 |
 */
 
+Route::get('/', 'HomeController@index');
 Route::get('/games', 'testController@games')->name('games');
 Route::get('/game/add', 'GamesController@addGame');
 Route::post('/game/add', 'GamesController@addPostGame')->name('game_add_post');
 Route::get('/game/{game_id}', 'GamesController@getGame')->name('game_details');
 Route::get('/devs', 'testController@developpers');
-Route::get('/{hello?}', 'testController@hello');
+//Route::get('/{hello?}', 'testController@hello');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
